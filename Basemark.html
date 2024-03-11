@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaseMark Nepal</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('fashion_background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1em;
+            text-align: center;
+            position: relative;
+        }
+
+        .logo {
+            color: #fff;
+            position: absolute;
+            left: 10px;
+            font-weight: bold;
+            font-size: 24px; /* Increased font size */
+        }
+
+        .logo span {
+            color: #fff; /* RO in white color */
+        }
+
+        .logo span.orange {
+            color: #fa5b0f; /* BAJ in orange color */
+        }
+
+        .center-text {
+            margin-top: 20px;
+        }
+
+        section {
+            max-width: 600px;
+            margin: 2em auto;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        form {
+            display: grid;
+            gap: 1em;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input {
+            width: calc(100% - 2em);
+            padding: 0.5em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 1em;
+        }
+
+        .fa-icon {
+            margin-right: 0.5em;
+            color: #333;
+        }
+
+        button {
+            background-color: #333;
+            color: #fff;
+            padding: 0.5em 1em;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .thank-you-message {
+            display: none;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo"><i class="fas fa-shopping-bag fa-icon"></i> <span>RO</span><span class="orange">BAJ</span> <i class="fas fa-shopping-bag fa-icon"></i></div>
+        <h2 class="center-text">BaseMark Nepal</h2>
+    </header>
+
+    <section>
+        <form id="myForm" action="https://docs.google.com/forms/d/e/1FAIpQLSfhhR6Lh2L7ZJZf6ZxnBdYS1o1BappSFYmlpfOGmxfCMcKEFw/formResponse" method="post">
+            <label for="registered"><i class="fas fa-tag fa-icon"></i> Is your business legally registered in Nepal? If yes, then when?</label>
+            <input type="text" id="entry.1582011037" name="entry.1582011037">
+
+            <label for="manufacture"><i class="fas fa-industry fa-icon"></i> Do you manufacture own product or resell them?</label>
+            <input type="text" id="entry.1285373713" name="entry.1285373713">
+
+            <label for="distribution"><i class="fas fa-map-marked-alt fa-icon"></i> Your own distribution network or via others distribution channels?</label>
+            <input type="text" id="entry.1909872252" name="entry.1909872252">
+
+            <label for="platform"><i class="fas fa-globe fa-icon"></i> Are you registered in any online selling platform? (Eg: Daraz, Blanxer)</label>
+            <input type="text" id="entry.734170983" name="entry.734170983">
+
+            <label for="salesRange"><i class="fas fa-chart-line fa-icon"></i> What was your last year sales range?</label>
+            <input type="text" id="entry.1506681107" name="entry.1506681107">
+
+            <label for="lastMonthSales"><i class="far fa-calendar-alt fa-icon"></i> What was your approximate sales on last Month?</label>
+            <input type="text" id="entry.724939726" name="entry.724939726">
+
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+
+        <div class="thank-you-message" id="thankYouMessage">Thank you, BaseMark Nepal for submitting the form to ROBAJ ! Your response is greatly appreciated, and we look forward to connecting with you soon.
+</div>
+    </section>
+
+    <script>
+        function submitForm() {
+            // Perform form submission (you may want to add validation here)
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", "https://docs.google.com/forms/d/e/1FAIpQLSfhhR6Lh2L7ZJZf6ZxnBdYS1o1BappSFYmlpfOGmxfCMcKEFw/formResponse", true);
+            xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+            var formData = new FormData(document.getElementById("myForm"));
+            xhr.send(new URLSearchParams(formData).toString());
+
+            // Display thank-you message
+            document.getElementById("myForm").style.display = "none";
+            document.getElementById("thankYouMessage").style.display = "block";
+        }
+    </script>
+</body>
+
+</html>
