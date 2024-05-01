@@ -7062,6 +7062,19 @@ ul.sidebar-tags li a:hover {
     text-align: center;
     color: blue;
 }
+@media (max-width: 991px) {
+    .register-login {
+        text-align: center;
+        margin-top: 10px; /* Adjust margin top as needed */
+    }
+
+    .register-login a {
+        display: inline-block;
+        margin: 0 10px; /* Adjust margin as needed */
+    }
+}
+
+
 
 
 
