@@ -8,6 +8,7 @@ function submitForm(event) {
     formData.append('entry.1416021770', document.getElementById('fullname_input').value);
     formData.append('entry.505424185', document.getElementById('phone_input').value);
     formData.append('entry.64164457', document.getElementById('business_name_input').value);
+formData.append('entry.915639808', document.getElementById('business_pan_input').value);
     formData.append('entry.113038457', document.getElementById('job_post_input').value);
     formData.append('entry.1191052732', document.getElementById('employees_required_input').value);
     formData.append('entry.1378794811', document.getElementById('salary_range_input').value);
