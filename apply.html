@@ -120,61 +120,79 @@
 <section class="call-to-action bg-lgrey border-t">
     <div class="container">
         <div class="section-title text-center w-75 mx-auto mb-5 px-md-5">
-            <h2 class="mb-2">Post a Job</h2>
-            <p class="mb-0">Fill out the form below to post a job.</p>
+            <h2 class="mb-2">Apply for a Job</h2>
+            <p class="mb-0">Fill out the form below to apply for a job.</p>
         </div>
         <div class="reservation-main mx-auto w-75">
             <div id="contactform-error-msg"></div>
-            <form method="post" action="https://docs.google.com/forms/d/e/1FAIpQLSdn_MoB9aE2htR8MLUXP2059Jc_V1B8R4bdcr_VvrKXVGB3rw/formResponse" class="" name="contactform2" id="contactform2" onsubmit="submitForm(event)">
+            <form method="post" action="https://docs.google.com/forms/d/e/1FAIpQLScJlO0q0I3kn_2oeZcOYBxXk6XnTahoG88xA_TFzdoKq_JBKg/formResponse" class="" name="contactform2" id="contactform2" onsubmit="submitForm(event)">
                 <!-- Hidden input fields for Google Forms entry IDs -->
-                <input type="hidden" name="entry.1510674512" id="fullname">
-                <input type="hidden" name="entry.1675776430" id="age">
-                <input type="hidden" name="entry.1260566115" id="email">
-                <input type="hidden" name="entry.1819012170" id="contact">
-                <!-- Data id for CV upload -->
-                <input type="hidden" name="entry.1097647249" id="cv">
+                <input type="hidden" name="entry.109278719" id="fullname">
+                <input type="hidden" name="entry.211305011" id="age">
+                <input type="hidden" name="entry.353576013" id="email">
+                <input type="hidden" name="entry.325486052" id="contact">
+                <input type="hidden" name="entry.1170473186" id="location">
+                <input type="hidden" name="entry.1227201062" id="jobcode">
 
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group mb-2">
                             <label>Your Full Name</label>
-                            <input type="text" id="fullname_input" name="full_name">
+                            <input type="text" id="fullname_input" name="full_name" required>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group mb-2">
                             <label>Your Age</label>
-                            <input type="text" id="age_input" name="age">
+                            <input type="text" id="age_input" name="age" required>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group mb-2">
                             <label>Email</label>
-                            <input type="email" id="email_input" name="email">
+                            <input type="email" id="email_input" name="email" required>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group mb-2">
                             <label>Contact Number</label>
-                            <input type="tel" id="contact_input" name="contact">
+                            <input type="tel" id="contact_input" name="contact" required>
                         </div>
                     </div>
-                    <div class="col-lg-12">
+                    <div class="col-lg-6 col-md-6">
                         <div class="form-group mb-2">
-                            <label>Upload Your CV</label>
-                            <!-- Input field for CV upload with data id -->
-                            <input type="file" id="cv_input" name="cv" data-id="1097647249">
+                            <label>Your Location</label>
+                            <input type="text" id="location_input" name="location" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group mb-2">
+                            <label>Job Code</label>
+                            <input type="text" id="jobcode_input" name="jobcode" required>
                         </div>
                     </div>
                 </div>
+<div class="col-lg-6 col-md-6">
+    <div class="form-group mb-2">
+        <label>Upload CV</label>
+        <input type="file" id="cv_upload" name="cv" accept=".pdf,.doc,.docx" required>
+    </div>
+</div>
 
                 <div class="comment-btn text-center">
                     <input type="submit" class="job-btn btn1 d-inline-block" id="submit2" value="Submit">
                 </div>
             </form>
+            <div id="thankYouMessage" style="display:none;">
+                <div class="text-center mt-5">
+                    <h2>Thank You!</h2>
+                    <p>Your application has been submitted successfully. We will get back to you soon.</p>
+                </div>
+            </div>
         </div>
     </div>
 </section>
+
 
 
 <section class="footer-newsletter bg-grey py-5">
@@ -283,6 +301,8 @@ Empowering Communities: Creating Commission Free Job Opportunities for Youth
 <script src="js/bootstrap.min.js"></script>
 <script src="js/plugin.js"></script>
 <script src="js/main.js"></script>
+<script src="js/upload.js"></script>
+<script src="js/apply.js"></script>
 
 <script src="js/custom-nav.js"></script>
 <script src="js/custom-accordian.js"></script>
