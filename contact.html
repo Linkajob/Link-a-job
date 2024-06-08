@@ -1,4 +1,4 @@
-<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="zxx"><head>
+<!DOCTYPE html><html>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Link a Job</title>
@@ -171,56 +171,56 @@
 
 
 <section class="call-to-action bg-lgrey border-t">
-<div class="container">
-<div class="section-title text-center w-75 mx-auto mb-5 px-md-5">
-<h2 class="mb-2">Do You Have Any <span class="theme">Questions?</span></h2>
-<p class="mb-0">If you have any questions you can feel free to ask. Our team member will reply to your queries in the email you will provide, In case of urgency you can call us too</p>
-</div>
-<div class="reservation-main mx-auto w-75">
-    <div id="contactform-error-msg"></div>
-    <form method="post" action="https://docs.google.com/forms/d/e/1FAIpQLSfsWm_ADzFHVSlTi3Ms471lpU9F3yq9qkezRIPffRYWk_OHAw/formResponse" class="" name="contactform2" id="contactform2">
-        <div class="row">
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group mb-2">
-                    <label for="fullname">Full Name</label>
-                    <input type="text" id="fullname" name="entry.577860268">
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group mb-2">
-                    <label for="phone">Phone No.</label>
-                    <input type="text" id="phone" name="entry.836599502">
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group mb-2">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="entry.1006859686">
-                </div>
-            </div>
-            <div class="col-lg-6 col-md-6">
-                <div class="form-group mb-2">
-                    <label for="company_name">Company(optional)</label>
-                    <input type="text" id="company_name" name="entry.747094682">
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <div class="form-group mb-2">
-                    <label for="comments">Message</label>
-                    <textarea name="entry.2103665221" id="comments" placeholder="Type your message here..."></textarea>
-                </div>
-            </div>
+    <div class="container">
+        <div class="section-title text-center w-75 mx-auto mb-5 px-md-5">
+            <h2 class="mb-2">Do You Have Any <span class="theme">Questions?</span></h2>
+            <p class="mb-0">If you have any questions you can feel free to ask. Our team member will reply to your queries in the email you will provide, In case of urgency you can call us too.</p>
         </div>
-        <div class="comment-btn text-center">
-              <input type="submit" class="job-btn btn1 d-inline-block" id="submit2" value="Submit">
+        <div class="reservation-main mx-auto w-75">
+            <div id="contactform-error-msg"></div>
+            <div id="thankYouMessage" style="display: none;">
+                Thank you for contacting us! You will be contacted soon.
+            </div>
+            <form method="post" action="#" class="" name="contactform2" id="contactform2" onsubmit="submitContactForm(event)">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group mb-2">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" name="entry.577860268">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group mb-2">
+                            <label for="phone">Phone No.</label>
+                            <input type="text" id="phone" name="entry.836599502">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group mb-2">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="entry.1006859686">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group mb-2">
+                            <label for="company_name">Company (optional)</label>
+                            <input type="text" id="company_name" name="entry.747094682">
+                        </div>
+                    </div>
+                    <div class="col-lg-12">
+                        <div class="form-group mb-2">
+                            <label for="comments">Message</label>
+                            <textarea name="entry.2103665221" id="comments" placeholder="Type your message here..."></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="comment-btn text-center">
+                    <input type="submit" class="job-btn btn1 d-inline-block" id="submit2" value="Submit">
+                </div>
+            </form>
         </div>
-    </form>
-</div>
-
+    </div>
 </section>
-
-
-
 <section class="footer-newsletter bg-grey py-5">
 <div class="container">
 <div class="newsletter-main">
@@ -327,6 +327,7 @@ Empowering Communities: Creating Commission Free Job Opportunities for Youth
 <script src="js/plugin.js"></script>
 <script src="js/main.js"></script>
 <script src="js/custom-nav.js"></script>
+<script src="js/submitcon.js"></script>
 
 <script src="js/custom-accordian.js"></script>
 </body></html>
