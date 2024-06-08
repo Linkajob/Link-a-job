@@ -1,10 +1,4 @@
-/*------------------------------------------------------------------
-* Project:        Jobee - Job Portal HTML Template
-* Author:         Cyclone_themes
-* URL:            https://account.templatemonster.com/profile
-* Created:        05/20/2023
--------------------------------------------------------------------
-*/
+document.addEventListener("DOMContentLoaded", function() {
 
 (function($) {
     "use strict";
@@ -559,3 +553,4 @@ function submitForm(event) {
     // Submit the form
     document.getElementById("contactform2").submit();
 }
+});
