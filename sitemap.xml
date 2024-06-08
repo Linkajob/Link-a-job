@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+      
+<url>
+  <loc>https://www.linkajob.com/</loc>
+  <lastmod>2024-06-08T10:54:05+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://www.linkajob.com/index.html</loc>
+  <lastmod>2024-06-08T10:54:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.linkajob.com/about.html</loc>
+  <lastmod>2024-06-08T10:54:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.linkajob.com/job-list.html</loc>
+  <lastmod>2024-06-08T10:54:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.linkajob.com/candidate-grid.html</loc>
+  <lastmod>2024-06-08T10:54:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.linkajob.com/pricing.html</loc>
+  <lastmod>2024-06-08T10:54:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.linkajob.com/gallery.html</loc>
+  <lastmod>2024-06-08T10:54:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.linkajob.com/faq.html</loc>
+  <lastmod>2024-06-08T10:54:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.linkajob.com/postajob.html</loc>
+  <lastmod>2024-06-08T10:54:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.linkajob.com/resume/resume.html</loc>
+  <lastmod>2024-06-08T10:54:05+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.linkajob.com/apply.html</loc>
+  <lastmod>2024-06-08T10:54:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+</urlset>
