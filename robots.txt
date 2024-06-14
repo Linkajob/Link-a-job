@@ -1,2 +1,3 @@
 User-agent: *
 Disallow: /file/upload.html
+Disallow: /training/certificate.html
