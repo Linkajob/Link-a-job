@@ -26,7 +26,7 @@
 
     // Function to validate certificate
     function validateCertificate() {
-        const code = document.getElementById('certificateCode').value.trim(); // Trim to remove extra whitespace
+        const code = document.getElementById('certificateCode').value.trim().toLowerCase().replace(/\s+/g, ''); // Trim, convert to lowercase, and remove spaces
         const resultDiv = document.getElementById('result');
 
         if (certificates[code]) {
@@ -41,7 +41,7 @@
                     <p>Duration: ${cert.duration}</p>
                     <p>Issuer: ${cert.issuer}</p>
                     <a href="${cert.certificate}" target="_blank">View Certificate</a>
-                    <button class="validator-button" onclick="shareCertificate('${cert.certificate}')">Share Certificate</button>
+                    <button class="validator-button" onclick="shareCertificate('${cert.certificate}', '${cert.name}', '${cert.course}', '${cert.completionDate}', '${cert.issuer}')">Share Certificate</button>
                 </div>
             `;
         } else {
@@ -50,21 +50,20 @@
     }
 
     // Function to share certificate
-    function shareCertificate(certificate) {
+    function shareCertificate(certificateUrl, name, course, completionDate, issuer) {
         const shareData = {
-            title: 'Certificate',
-            text: 'Check out this certificate!',
-            url: certificate
+            title: 'Certificate of Completion',
+            text: `Check out this certificate of ${name} for completing the ${course} on ${completionDate}, issued by ${issuer}.`,
+            url: certificateUrl
         };
 
-        try {
-            navigator.share(shareData).then(() => {
-                console.log('Shared successfully');
-            }).catch((error) => {
-                console.error('Error sharing', error);
-            });
-        } catch (error) {
-            console.error('Share API not supported', error);
+        if (navigator.share) {
+            navigator.share(shareData)
+                .then(() => console.log('Shared successfully'))
+                .catch((error) => console.error('Error sharing', error));
+        } else {
+            // Fallback for browsers that do not support the Web Share API
+            alert('Share feature is not supported in your browser. Please copy and share the link manually.');
         }
     }
 
