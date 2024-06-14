@@ -41,7 +41,7 @@
                     <p>Duration: ${cert.duration}</p>
                     <p>Issuer: ${cert.issuer}</p>
                     <a href="${cert.certificate}" target="_blank">View Certificate</a>
-                    <button class="validator-button" onclick="showShareOptions('${cert.certificate}', '${cert.name}', '${cert.course}', '${cert.completionDate}', '${cert.issuer}')">Share Certificate</button>
+                    <button class="validator-button" onclick="shareCertificate('${cert.certificate}', '${cert.name}', '${cert.course}', '${cert.completionDate}', '${cert.issuer}')">Share Certificate</button>
                 </div>
             `;
         } else {
@@ -49,36 +49,22 @@
         }
     }
 
-    // Function to show share options
-    function showShareOptions(certificateUrl, name, course, completionDate, issuer) {
+    // Function to share certificate
+    function shareCertificate(certificateUrl, name, course, completionDate, issuer) {
         const shareData = {
             title: 'Certificate of Completion',
             text: `Check out this certificate of ${name} for completing the ${course} on ${completionDate}, issued by ${issuer}.`,
             url: certificateUrl
         };
 
-        let shareLinks = `
-            <div class="share-buttons">
-                <a href="https://api.whatsapp.com/send?text=${encodeURIComponent(shareData.text)}%20${encodeURIComponent(shareData.url)}" target="_blank">Share on WhatsApp</a>
-                <a href="https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareData.url)}&quote=${encodeURIComponent(shareData.text)}" target="_blank">Share on Facebook</a>
-                <a href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareData.text)}%20${encodeURIComponent(shareData.url)}" target="_blank">Share on Twitter</a>
-                <a href="mailto:?subject=${encodeURIComponent(shareData.title)}&body=${encodeURIComponent(shareData.text)}%20${encodeURIComponent(shareData.url)}">Share via Email</a>
-                <a href="sms:?body=${encodeURIComponent(shareData.text)}%20${encodeURIComponent(shareData.url)}">Share via SMS</a>
-            </div>
-        `;
-
-        // Display the share links in a modal
-        const modalContent = `
-            <div id="shareModal" style="position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); display:flex; align-items:center; justify-content:center;">
-                <div style="background:#fff; padding:20px; border-radius:10px; text-align:center;">
-                    <h2>Share Certificate</h2>
-                    ${shareLinks}
-                    <button onclick="document.getElementById('shareModal').remove()">Close</button>
-                </div>
-            </div>
-        `;
-        
-        document.body.insertAdjacentHTML('beforeend', modalContent);
+        if (navigator.share) {
+            navigator.share(shareData)
+                .then(() => console.log('Shared successfully'))
+                .catch((error) => console.error('Error sharing', error));
+        } else {
+            // Fallback for browsers that do not support the Web Share API
+            alert('Share feature is not supported in your browser. Please copy and share the link manually.');
+        }
     }
 
     // Attach event listener to the Validate button
