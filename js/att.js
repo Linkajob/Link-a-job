@@ -1,20 +1,19 @@
-// formSubmission.js
-
 function submitForm(event) {
     event.preventDefault(); // Prevent default form submission
 
     // Prepare form data
     var formData = new FormData();
-    formData.append('entry.292968777', document.getElementById('name_input').value);
-    formData.append('entry.2010175589', document.getElementById('age_input').value);
-    formData.append('entry.775396678', document.getElementById('contact_input').value);
-    formData.append('entry.1408469120', document.getElementById('email_input').value);
-    formData.append('entry.1253649837', document.getElementById('permanent_address_input').value);
-    formData.append('entry.1011077798', document.getElementById('current_address_input').value);
-    formData.append('entry.1659501321', document.getElementById('worked_before_input').value);
-    formData.append('entry.2020974035', document.getElementById('currently_working_input').value);
-    formData.append('entry.1188174776', document.getElementById('training_input').value);
-    formData.append('entry.274539895', document.getElementById('job_searching_input').value);
+    formData.append('entry.292968777', document.getElementById('permanent_address_input').value);
+    formData.append('entry.2010175589', document.getElementById('current_address_input').value);
+    formData.append('entry.775396678', document.getElementById('previous_job_input').value);
+    formData.append('entry.1408469120', document.getElementById('current_job_input').value);
+    formData.append('entry.1253649837', document.getElementById('training_input').value);
+    formData.append('entry.1011077798', document.getElementById('job_type_input').value);
+    formData.append('entry.1659501321', document.getElementById('previous_job_input').value);
+    formData.append('entry.2020974035', document.getElementById('current_job_input').value);
+    formData.append('entry.1188174776', document.getElementById('email_input').value);
+    formData.append('entry.274539895', document.getElementById('contact_input').value);
+    formData.append('entry.1603740132', document.getElementById('work_time_input').value);
 
     // Perform form submission
     var xhr = new XMLHttpRequest();
@@ -23,13 +22,7 @@ function submitForm(event) {
     xhr.send(new URLSearchParams(formData).toString());
 
     // Display thank-you message
-    xhr.onreadystatechange = function() {
-        if (xhr.readyState === XMLHttpRequest.DONE) {
-            document.getElementById("myForm").reset(); // Reset form fields
-            document.getElementById("myForm").style.display = "none";
-            document.getElementById("thankYouMessage").style.display = "block";
-        }
-    };
-}
-
+    document.getElementById("contactform2").reset(); // Reset form fields
+    document.getElementById("contactform2").style.display = "none";
+    document.getElementById("thankYouMessage").style.display = "block";
 }
