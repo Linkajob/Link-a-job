@@ -121,48 +121,51 @@
 <section class="call-to-action bg-lgrey border-t">
     <div class="container">
         <div class="section-title text-center w-75 mx-auto mb-5 px-md-5">
-            <h2 class="mb-2">Attendence</h2>
-            <p class="mb-0">Fill out the form below to Mark Your Presence.</p>
+            <h2 class="mb-2">Apply for a Job</h2>
+            <p class="mb-0">Fill out the form below to apply for a job.</p>
         </div>
         <div class="reservation-main mx-auto w-75">
             <div id="contactform-error-msg"></div>
             <form method="post" action="https://docs.google.com/forms/d/e/1FAIpQLScCrOMXwIK61PiTX3wB4s0MKHC2Hm0ICkQhnx4hdTqlRpzXPg/formResponse" name="contactform2" id="contactform2" onsubmit="submitForm(event)">
-                
-                <input type="hidden" name="entry.292968777" id="permanent_address">
-                <input type="hidden" name="entry.2010175589" id="current_address">
-                <input type="hidden" name="entry.775396678" id="previous_job">
-                <input type="hidden" name="entry.1408469120" id="current_job">
-                <input type="hidden" name="entry.1253649837" id="training">
-                <input type="hidden" name="entry.1011077798" id="job_type">
-                <input type="hidden" name="entry.1659501321" id="previous_job_details">
-                <input type="hidden" name="entry.2020974035" id="current_job_details">
-                <input type="hidden" name="entry.1188174776" id="email">
-                <input type="hidden" name="entry.274539895" id="contact">
+                <!-- Hidden input fields for Google Forms entry IDs -->
+                <input type="hidden" name="entry.292968777" id="fullname">
+                <input type="hidden" name="entry.2010175589" id="age">
+                <input type="hidden" name="entry.775396678" id="contact">
+                <input type="hidden" name="entry.1408469120" id="email">
+                <input type="hidden" name="entry.1253649837" id="permanent_address">
+                <input type="hidden" name="entry.1011077798" id="current_address">
+                <input type="hidden" name="entry.608045878" id="license">
+                <input type="hidden" name="entry.2010849993" id="computer_knowledge">
+                <input type="hidden" name="entry.1659501321" id="previous_job">
+                <input type="hidden" name="entry.2020974035" id="current_job">
+                <input type="hidden" name="entry.1188174776" id="training">
+                <input type="hidden" name="entry.274539895" id="job_type">
                 <input type="hidden" name="entry.1603740132" id="work_time">
+                <input type="hidden" name="entry.664075864" id="comments">
 
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group mb-2">
                             <label>हजुरको पुरा नाम ?</label>
-                            <input type="text" id="fullname_input" name="fullname" required>
+                            <input type="text" id="fullname_input" name="full_name" required>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group mb-2">
-                            <label>हजुरको उमेर</label>
+                            <label>हजुरको उमेर ?</label>
                             <input type="text" id="age_input" name="age" required>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-6">
-                        <div class="form-group mb-2">
-                            <label>इमेल आइडी ?</label>
-                            <input type="email" id="email_input" name="email" required>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group mb-2">
                             <label>हजुरको सम्पर्क नम्बर ?</label>
                             <input type="tel" id="contact_input" name="contact" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group mb-2">
+                            <label>इमेल आइडी ?</label>
+                            <input type="email" id="email_input" name="email" required>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -175,6 +178,18 @@
                         <div class="form-group mb-2">
                             <label>हालको ठेगाना ?</label>
                             <input type="text" id="current_address_input" name="current_address" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group mb-2">
+                            <label>के तपाई संग लाइसेन्स छ ? (येदि छ भने कुन कुन वर्ग को छ ?)</label>
+                            <input type="text" id="license_input" name="license">
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="form-group mb-2">
+                            <label>के तपाईलाई कम्प्युटर को ज्ञान छ ?</label>
+                            <input type="text" id="computer_knowledge_input" name="computer_knowledge">
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -204,24 +219,28 @@
                     <div class="col-lg-6 col-md-6">
                         <div class="form-group mb-2">
                             <label>तपाईलाई काम गर्न अनुकूल हुने समय ?</label>
-                            <input type="text" id="work_time_input" name="work_time">
-                        </div>
-                    </div>
-                </div>
-               
-
-                <div class="comment-btn text-center">
-                    <input type="submit" class="job-btn btn1 d-inline-block" id="submit2" value="Submit">
-                </div>
-            </form>
-            <div id="thankYouMessage" style="display:none;">
-                <div class="text-center mt-5">
-                    <h2>धन्यवाद!</h2>
-                    <p> हामी विश्वस्त छौं कि हजुरको योग्यता र क्षमताका आधारमा हजुरले खोज्नुभएको उत्कृष्ट जागिर पाउनु हुनेछ। शुभकामना!</p>
-                </div>
+<input type="text" id="work_time_input" name="work_time">
+</div>
+</div>
+<div class="col-lg-6 col-md-6">
+<div class="form-group mb-2">
+<label>अरु कुनै टिप्पणी ?</label>
+<input type="text" id="comments_input" name="comments">
+</div>
+</div>
+</div>   
+<div class="comment-btn text-center">
+                <input type="submit" class="job-btn btn1 d-inline-block" id="submit2" value="Submit">
+            </div>
+        </form>
+        <div id="thankYouMessage" style="display:none;">
+            <div class="text-center mt-5">
+                <h2>धन्यवाद!</h2>
+                <p>हामी विश्वस्त छौं कि हजुरको योग्यता र क्षमताका आधारमा हजुरले खोज्नुभएको उत्कृष्ट जागिर पाउनु हुनेछ। शुभकामना!</p>
             </div>
         </div>
     </div>
+</div>
 </section>
 <footer class="pt-10 pb-4" style="background:#03749a url(images/testimonial1.png) no-repeat bottom fixed;">
 <div class="footer-upper pb-4">
