@@ -253,9 +253,9 @@
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
-    <script>
-        function saveContact() {
-            const vCardData = 
+<script>
+    function saveContact() {
+        const vCardData = 
 `BEGIN:VCARD
 VERSION:3.0
 FN:Binod Kumar Khadka
@@ -264,80 +264,81 @@ EMAIL:binod76khadka@gmail.com
 PHOTO;TYPE=JPEG;ENCODING=BASE64:${getImageBase64()}
 END:VCARD`;
 
-            const blob = new Blob([vCardData], { type: 'text/vcard' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'contact.vcf';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
+        const blob = new Blob([vCardData], { type: 'text/vcard' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'contact.vcf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
 
-        function getImageBase64() {
-            const canvas = document.createElement('canvas');
-            const ctx = canvas.getContext('2d');
-            const img = document.querySelector('.profile-img');
+    function getImageBase64() {
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        const img = document.querySelector('.profile-img');
 
+        canvas.width = img.width;
+        canvas.height = img.height;
+        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+        return canvas.toDataURL('image/jpeg').split(',')[1];  // Base64 encoded image data
+    }
+
+    function sendEmail() {
+        const email = 'binod76khadka@gmail.com';
+        window.location.href = 'mailto:' + email;
+    }
+
+    function makeCall() {
+        const phoneNumber = '+9779851084524';
+        window.location.href = 'tel:' + phoneNumber;
+    }
+
+    function generateQR() {
+        const currentURL = window.location.href;
+        const qrCode = qrcode(0, 'M');
+        qrCode.addData(currentURL);
+        qrCode.make();
+        const qrElement = document.getElementById('qrcode');
+        qrElement.innerHTML = qrCode.createSvgTag({ scalable: true });
+        document.getElementById('qrModal').style.display = 'flex';
+    }
+
+    function downloadQR() {
+        const profileName = 'Binod Kumar Khadka';
+        const svg = document.getElementById('qrcode').querySelector('svg');
+        const svgData = new XMLSerializer().serializeToString(svg);
+        const canvas = document.createElement('canvas');
+        const context = canvas.getContext('2d');
+
+        const img = new Image();
+        img.onload = function () {
+            context.clearRect(0, 0, canvas.width, canvas.height);
             canvas.width = img.width;
             canvas.height = img.height;
-            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+            context.drawImage(img, 0, 0);
 
-            return canvas.toDataURL('image/jpeg').split(',')[1];  // Base64 encoded image data
-        }
+            canvas.toBlob(function (blob) {
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = `${profileName} QR.jpg`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+            }, 'image/jpeg');
+        };
+        img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
+    }
 
-        function sendEmail() {
-            const email = 'binod76khadka@gmail.com';
-            window.location.href = 'mailto:' + email;
-        }
+    function closeQRModal() {
+        document.getElementById('qrModal').style.display = 'none';
+    }
+</script>
 
-        function makeCall() {
-            const phoneNumber = '+9779851084524';
-            window.location.href = 'tel:' + phoneNumber;
-        }
-
-        function generateQR() {
-            const currentURL = window.location.href;
-            const qrCode = qrcode(0, 'M');
-            qrCode.addData(currentURL);
-            qrCode.make();
-            const qrElement = document.getElementById('qrcode');
-            qrElement.innerHTML = qrCode.createSvgTag({ scalable: true });
-            document.getElementById('qrModal').style.display = 'flex';
-        }
-
-        function downloadQR() {
-            const profileName = 'Binod Kumar Khadka';
-            const svg = document.getElementById('qrcode').querySelector('svg');
-            const svgData = new XMLSerializer().serializeToString(svg);
-            const canvas = document.createElement('canvas');
-            const context = canvas.getContext('2d');
-
-            const img = new Image();
-            img.onload = function () {
-                context.clearRect(0, 0, canvas.width, canvas.height);
-                canvas.width = img.width;
-                canvas.height = img.height;
-                context.drawImage(img, 0, 0);
-
-                canvas.toBlob(function (blob) {
-                    const url = URL.createObjectURL(blob);
-                    const a = document.createElement('a');
-                    a.href = url;
-                    a.download = `${profileName} QR.jpg`;
-                    document.body.appendChild(a);
-                    a.click();
-                    document.body.removeChild(a);
-                    URL.revokeObjectURL(url);
-                }, 'image/jpeg');
-            };
-            img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
-        }
-
-        function closeQRModal() {
-            document.getElementById('qrModal').style.display = 'none';
-        }
-    </script>
 </body>
 </html>
