@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Data Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input[type="text"],
+        .form-group textarea,
+        .form-group input[type="url"],
+        .form-group input[type="email"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        .form-group textarea {
+            height: 100px;
+        }
+        .form-group input[type="file"] {
+            margin-top: 5px;
+        }
+        .form-group button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Enter Profile Data</h2>
+        <form id="profileForm" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="post">Post:</label>
+                <input type="text" id="post" name="post" required>
+            </div>
+            <div class="form-group">
+                <label for="institution">Institution:</label>
+                <input type="text" id="institution" name="institution" required>
+            </div>
+            <div class="form-group">
+                <label for="about">About:</label>
+                <textarea id="about" name="about" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="contact">Contact:</label>
+                <input type="text" id="contact" name="contact" placeholder="Enter contact information" required>
+            </div>
+            <div class="form-group">
+                <label for="location">Location:</label>
+                <input type="text" id="location" name="location" placeholder="Enter location">
+            </div>
+            <div class="form-group">
+                <label for="facebook">Facebook URL:</label>
+                <input type="url" id="facebook" name="facebook" placeholder="Enter Facebook URL">
+            </div>
+            <div class="form-group">
+                <label for="linkedin">LinkedIn URL:</label>
+                <input type="url" id="linkedin" name="linkedin" placeholder="Enter LinkedIn URL">
+            </div>
+            <div class="form-group">
+                <label for="youtube">YouTube URL:</label>
+                <input type="url" id="youtube" name="youtube" placeholder="Enter YouTube URL">
+            </div>
+            <div class="form-group">
+                <label for="twitter">Twitter URL:</label>
+                <input type="url" id="twitter" name="twitter" placeholder="Enter Twitter URL">
+            </div>
+            <div class="form-group">
+                <label for="instagram">Instagram URL:</label>
+                <input type="url" id="instagram" name="instagram" placeholder="Enter Instagram URL">
+            </div>
+            <div class="form-group">
+                <label for="whatsapp">WhatsApp URL:</label>
+                <input type="url" id="whatsapp" name="whatsapp" placeholder="Enter WhatsApp URL">
+            </div>
+            <div class="form-group">
+                <label for="website">Website URL:</label>
+                <input type="url" id="website" name="website" placeholder="Enter website URL">
+            </div>
+            <div class="form-group">
+                <label for="profileImage">Profile Picture:</label>
+                <input type="file" id="profileImage" name="profileImage">
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('profileForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // You can handle form submission here, e.g., by collecting form data
+            const formData = new FormData(this);
+
+            // Example: Log form data to console
+            for (var pair of formData.entries()) {
+                console.log(pair[0] + ': ' + pair[1]);
+            }
+
+            // Optionally, you can send this data to a server using AJAX
+            // Replace this with your AJAX request if you have a backend to handle the form data
+            // Example using fetch API (uncomment and replace with your endpoint)
+            /*
+            fetch('your-backend-endpoint', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Optionally, you can display a success message or redirect
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+            */
+        });
+    </script>
+</body>
+</html>
