@@ -250,17 +250,17 @@
         </div>
     </div>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
     <script>
         function saveContact() {
-            const profileImgUrl = 'https://example.com/profile.png'; // Replace with your actual profile image URL
-            const vCardData =
-   `BEGIN:VCARD
-   VERSION:3.0
-   FN:Govinda Bahadur Khatri
-   TEL:+9779857021003
-   EMAIL:govindakc.np@gmail.com
-   PHOTO;VALUE=URL:${profileImgUrl}
-   END:VCARD`;
+            const vCardData = 
+`BEGIN:VCARD
+VERSION:3.0
+FN:Govinda Bahadur Khatri
+TEL:+9779857021003
+EMAIL:govindakc.np@gmail.com
+PHOTO;TYPE=JPEG;ENCODING=BASE64:${getImageBase64()}
+END:VCARD`;
 
             const blob = new Blob([vCardData], { type: 'text/vcard' });
             const url = URL.createObjectURL(blob);
@@ -271,6 +271,18 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
+        }
+
+        function getImageBase64() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = document.querySelector('.profile-img');
+
+            canvas.width = img.width;
+            canvas.height = img.height;
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+            return canvas.toDataURL('image/jpeg').split(',')[1];  // Base64 encoded image data
         }
 
         function sendEmail() {
@@ -294,7 +306,7 @@
         }
 
         function downloadQR() {
-            const profileName = document.querySelector('.profile-name').innerText.trim();
+            const profileName = 'Govinda Bahadur Khatri';
             const svg = document.getElementById('qrcode').querySelector('svg');
             const svgData = new XMLSerializer().serializeToString(svg);
             const canvas = document.createElement('canvas');
