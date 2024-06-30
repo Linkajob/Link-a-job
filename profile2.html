@@ -15,17 +15,21 @@
             margin: 0;
             padding: 0;
             display: flex;
-            flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             box-sizing: border-box;
         }
 
-        /* Container for profile header */
-        .profile-header {
+        /* Container for profile card */
+        .profile-card {
+            background-color: #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 90%;
             text-align: center;
-            margin-bottom: 30px;
+            overflow: hidden;
         }
 
         /* Profile picture styling */
@@ -68,6 +72,7 @@
             justify-content: center;
             gap: 20px;
             margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
         /* Round buttons styling */
@@ -92,6 +97,7 @@
             justify-content: center;
             gap: 20px;
             margin-bottom: 30px;
+            flex-wrap: wrap;
         }
 
         /* Social media icons styling */
@@ -111,7 +117,6 @@
             font-size: 16px;
             color: #ccc;
             text-align: center;
-            
             cursor: pointer;
         }
 
@@ -153,8 +158,26 @@
             font-size: 24px;
         }
 
+        /* New styles for larger QR code */
+        #qrcode svg {
+            width: 300px;
+            height: 300px;
+        }
+
         /* Responsive adjustments */
         @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+
+            .profile-card {
+                background-color: transparent;
+                box-shadow: none;
+                padding: 0;
+                max-width: 100%;
+                margin: 0;
+            }
+
             .profile-name {
                 font-size: 28px;
             }
@@ -187,35 +210,37 @@
             }
         }
     </style>
+
 </head>
 <body>
-    <div class="profile-header">
-        <img src="binod.jpg" alt="Profile Picture" class="profile-img">
-        <h1 class="profile-name">Binod Kumar Khadka</h1>
-        <p class="profile-post">प्रदेश सचिव</p>
-        <p class="profile-institution">सामाजिक विकास मन्‍‍त्रालय</p>
-        <p class="profile-about">Binod Kumar Khadka is a visionary leader and intellectual, serving as प्रदेश सचिव at लुम्बिनी प्रदेश सरकार in the सामाजिक विकास मन्‍‍त्रालय, राप्ती उपत्यका (देउखुरी), नेपाल. His strategic insights and innovative approaches to social development have significantly advanced the region's progress. Binod's dedication to public service and community welfare has fostered sustainable growth and improved the quality of life for countless individuals, making him a respected figure in his field.
-</p>
-    </div>
-    <div class="profile-contact">
-        <button class="round-btn" onclick="saveContact()">Save Contact</button>
-        <a href="tel:+977-9851084524" class="round-btn">Call</a>
-        <button class="round-btn" onclick="generateQR()">Share Profile</button>
-    </div>
-    <div class="profile-social-media">
-        <a href="https://www.facebook.com/govind.kc" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook"></a>
-        
-        <a href="https://linkedin.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/1200px-Linkedin_icon.svg.png" alt="LinkedIn"></a>
-        <a href="https://instagram.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" alt="Instagram"></a>
-        <a href="https://wa.me/9779851084524" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
-        <a href="https://youtube.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/YouTube_icon_%282013-2017%29.png/240px-YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
-    </div>
-    <div class="profile-contact-info" onclick="sendEmail()">
-        <p><i class="fas fa-envelope contact-icon"></i> binod76khadka@gmail.com</p>
-    </div>
-    <div class="profile-contact-info" onclick="makeCall()">
-        <p><i class="fas fa-phone contact-icon"></i> Call: +977-9851084524</p>
-        <p><i class="fas fa-map-marker-alt contact-icon"></i> Kathmandu, Nepal</p>
+    <div class="profile-card">
+        <div class="profile-header">
+            <img src="binod.jpg" alt="Profile Picture" class="profile-img">
+            <h1 class="profile-name">Binod Kumar Khadka</h1>
+            <p class="profile-post">प्रदेश सचिव</p>
+            <p class="profile-institution">सामाजिक विकास मन्‍‍त्रालय, राप्ती उपत्यका (देउखुरी), नेपाल</p>
+            <p class="profile-about">Binod Kumar Khadka is a visionary leader and intellectual, serving as प्रदेश सचिव at लुम्बिनी प्रदेश सरकार in the सामाजिक विकास मन्‍‍त्रालय, राप्ती उपत्यका (देउखुरी), नेपाल. His strategic insights and innovative approaches to social development have significantly advanced the region's progress. Binod's dedication to public service and community welfare has fostered sustainable growth and improved the quality of life for countless individuals, making him a respected figure in his field.</p>
+        </div>
+        <div class="profile-contact">
+            <button class="round-btn" onclick="saveContact()">Save Contact</button>
+            <a href="tel:+977-9851084524" class="round-btn">Call</a>
+            <button class="round-btn" onclick="generateQR()">Share Profile</button>
+        </div>
+        <div class="profile-social-media">
+            <a href="https://www.facebook.com/govind.kc" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook"></a>
+            
+            <a href="https://linkedin.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/1200px-Linkedin_icon.svg.png" alt="LinkedIn"></a>
+            <a href="https://instagram.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" alt="Instagram"></a>
+            <a href="https://wa.me/9779851084524" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
+            <a href="https://youtube.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/YouTube_icon_%282013-2017%29.png/240px-YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
+        </div>
+        <div class="profile-contact-info" onclick="sendEmail()">
+            <p><i class="fas fa-envelope contact-icon"></i> binod76khadka@gmail.com</p>
+        </div>
+        <div class="profile-location" onclick="makeCall()">
+            <p><i class="fas fa-phone contact-icon"></i> Call: +977-9851084524</p>
+            <p><i class="fas fa-map-marker-alt contact-icon"></i> Kathmandu, Nepal</p>
+        </div>
     </div>
 
     <!-- QR Code Modal -->
@@ -232,7 +257,7 @@
             const vCardData = 
 `BEGIN:VCARD
 VERSION:3.0
-FN:Govinda Bahadur Khatri
+FN:Binod Kumar Khadka
 TEL:+9779851084524
 EMAIL:binod76khadka@gmail.com
 END:VCARD`;
@@ -269,7 +294,7 @@ END:VCARD`;
         }
 
         function downloadQR() {
-            const profileName = document.querySelector('.profile-name').innerText.trim();
+            const profileName = 'Binod Kumar Khadka'; // Adjusted to specific profile
             const svg = document.getElementById('qrcode').querySelector('svg');
             const svgData = new XMLSerializer().serializeToString(svg);
             const canvas = document.createElement('canvas');
