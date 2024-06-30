@@ -252,13 +252,15 @@
 
     <script>
         function saveContact() {
+            const profileImgUrl = 'https://example.com/profile.png'; // Replace with your actual profile image URL
             const vCardData =
-`BEGIN:VCARD
-VERSION:3.0
-FN:Govinda Bahadur Khatri
-TEL:+9779857021003
-EMAIL:govindakc.np@gmail.com
-END:VCARD`;
+   `BEGIN:VCARD
+   VERSION:3.0
+   FN:Govinda Bahadur Khatri
+   TEL:+9779857021003
+   EMAIL:govindakc.np@gmail.com
+   PHOTO;VALUE=URL:${profileImgUrl}
+   END:VCARD`;
 
             const blob = new Blob([vCardData], { type: 'text/vcard' });
             const url = URL.createObjectURL(blob);
