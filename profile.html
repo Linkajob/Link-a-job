@@ -284,8 +284,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
     <script>
         function saveContact() {
-    const vCardData = `
-BEGIN:VCARD
+            const vCardData = 
+`BEGIN:VCARD
 VERSION:3.0
 FN:Govinda Bahadur Khatri
 ORG:प्रदेश युवा परिषद
@@ -295,16 +295,16 @@ URL:https://www.govindabahadurkhatri.com.np
 PHOTO;TYPE=JPEG;ENCODING=BASE64:${getImageBase64()}
 END:VCARD`;
 
-    const blob = new Blob([vCardData], { type: 'text/vcard' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'contact.vcf';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-}
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'contact.vcf';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
 
         function getImageBase64() {
             const canvas = document.createElement('canvas');
