@@ -26,10 +26,33 @@
             background-color: #333;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
             max-width: 90%;
             text-align: center;
             overflow: hidden;
+            position: relative; /* Added for positioning the logo and settings icon */
+        }
+
+        /* Logo styling */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Settings icon styling */
+        .settings-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: rgba(0, 0, 0, 0.6); /* Black blended */
+            cursor: pointer;
+        }
+
+        .settings-icon:hover {
+            color: rgba(0, 0, 0, 0.8);
         }
 
         /* Profile picture styling */
@@ -213,6 +236,13 @@
 </head>
 <body>
     <div class="profile-card">
+        <a href="card.html">
+    <img src="logo.png" alt="Logo" class="logo">
+</a>
+<a href="login.html">
+    <i class="fas fa-cog settings-icon"></i>
+</a>
+
         <div class="profile-header">
             <img src="profile.png" alt="Profile Picture" class="profile-img">
             <h1 class="profile-name">Govinda Bahadur Khatri</h1>
@@ -226,18 +256,17 @@
             <button class="round-btn" onclick="generateQR()">Share Profile</button>
         </div>
         <div class="profile-social-media">
-    <a href="https://www.facebook.com/govind.kc" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
-    <a href="https://www.linkedin.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Linkedin_icon.svg" alt="LinkedIn"></a>
-    <a href="https://www.instagram.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
-    <a href="https://wa.me/9779857021003" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
-    <a href="https://www.youtube.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
-    <a href="https://www.govindabahadurkhatri.com.np" class="social-media-link"><img src="https://e7.pngegg.com/pngimages/301/871/png-clipart-computer-icons-website-web-design-symmetry-thumbnail.png" alt="Website"></a>
-</div>
-
+            <a href="https://www.facebook.com/govind.kc" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
+            <a href="https://www.linkedin.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Linkedin_icon.svg" alt="LinkedIn"></a>
+            <a href="https://www.instagram.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
+            <a href="https://wa.me/9779857021003" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
+            <a href="https://www.youtube.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
+            <a href="https://www.govindabahadurkhatri.com.np" class="social-media-link"><img src="https://e7.pngegg.com/pngimages/301/871/png-clipart-computer-icons-website-web-design-symmetry-thumbnail.png" alt="Website"></a>
+        </div>
         <div class="profile-contact-info" onclick="sendEmail()">
             <p><i class="fas fa-envelope contact-icon"></i> govindakc.np@gmail.com</p>
         </div>
-        <div class="profile-contact-info" onclick="makeCall()">
+        <div class="profile-contact-info        onclick="makeCall()">
             <p><i class="fas fa-phone contact-icon"></i> Call: +977-9857021003</p>
             <p><i class="fas fa-map-marker-alt contact-icon"></i> Tilottama Rupandehi, Nepal</p>
         </div>
@@ -255,8 +284,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
     <script>
         function saveContact() {
-            const vCardData = 
-`BEGIN:VCARD
+    const vCardData = `
+BEGIN:VCARD
 VERSION:3.0
 FN:Govinda Bahadur Khatri
 ORG:प्रदेश युवा परिषद
@@ -266,16 +295,16 @@ URL:https://www.govindabahadurkhatri.com.np
 PHOTO;TYPE=JPEG;ENCODING=BASE64:${getImageBase64()}
 END:VCARD`;
 
-            const blob = new Blob([vCardData], { type: 'text/vcard' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'contact.vcf';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
+    const blob = new Blob([vCardData], { type: 'text/vcard' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'contact.vcf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+}
 
         function getImageBase64() {
             const canvas = document.createElement('canvas');
@@ -343,3 +372,4 @@ END:VCARD`;
     </script>
 </body>
 </html>
+

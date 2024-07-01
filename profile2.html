@@ -6,7 +6,7 @@
     <title>Binod Kumar Khadka</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
-    <style>
+   <style>
         /* Global reset and base styles */
         body {
             font-family: 'Roboto', sans-serif;
@@ -26,10 +26,33 @@
             background-color: #333;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            padding: 20px;
             max-width: 90%;
             text-align: center;
             overflow: hidden;
+            position: relative; /* Added for positioning the logo and settings icon */
+        }
+
+        /* Logo styling */
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Settings icon styling */
+        .settings-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            color: rgba(0, 0, 0, 0.6); /* Black blended */
+            cursor: pointer;
+        }
+
+        .settings-icon:hover {
+            color: rgba(0, 0, 0, 0.8);
         }
 
         /* Profile picture styling */
@@ -209,11 +232,19 @@
                 font-size: 14px;
             }
         }
+    
     </style>
 
 </head>
 <body>
     <div class="profile-card">
+<a href="card.html">
+    <img src="logo.png" alt="Logo" class="logo">
+</a>
+<a href="login.html">
+    <i class="fas fa-cog settings-icon"></i>
+</a>
+
         <div class="profile-header">
             <img src="binod.jpg" alt="Profile Picture" class="profile-img">
             <h1 class="profile-name">Binod Kumar Khadka</h1>
