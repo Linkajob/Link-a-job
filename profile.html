@@ -284,27 +284,37 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
     <script>
         function saveContact() {
-            const vCardData = 
-`BEGIN:VCARD
+    const vCardData = `
+BEGIN:VCARD
 VERSION:3.0
 FN:Govinda Bahadur Khatri
-
 TEL:+9779857021003
 EMAIL:govindakc.np@gmail.com
 URL:https://www.govindabahadurkhatri.com.np
 PHOTO;TYPE=JPEG;ENCODING=BASE64:${getImageBase64()}
 END:VCARD`;
 
-            const blob = new Blob([vCardData], { type: 'text/vcard' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'contact.vcf';
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
+    const blob = new Blob([vCardData], { type: 'text/vcard' });
+
+    // Create a new URL for the blob
+    const blobURL = URL.createObjectURL(blob);
+
+    // Create a new anchor element
+    const a = document.createElement('a');
+    a.href = blobURL;
+    a.setAttribute('download', 'contact.vcf');  // Ensure filename is correctly set
+
+    // Append anchor to body
+    document.body.appendChild(a);
+
+    // Programmatically trigger the download
+    a.click();
+
+    // Clean up
+    document.body.removeChild(a);
+    URL.revokeObjectURL(blobURL);
+}
+
 
         function getImageBase64() {
             const canvas = document.createElement('canvas');
