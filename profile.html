@@ -7,8 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
     <style>
-        /* Global reset and base styles */
-        body {
+               body {
             font-family: 'Roboto', sans-serif;
             background: linear-gradient(135deg, #1c1c1e, #2e2e2e);
             color: #fff;
@@ -21,7 +20,7 @@
             box-sizing: border-box;
         }
 
-        /* Container for profile card */
+        
         .profile-card {
             background-color: #333;
             border-radius: 10px;
@@ -29,11 +28,9 @@
             max-width: 90%;
             text-align: center;
             overflow: hidden;
-            position: relative; /* Added for positioning the logo and settings icon */
+            position: relative; 
         }
-
-        /* Logo styling */
-        .logo {
+ .logo {
             position: absolute;
             top: 20px;
             left: 20px;
@@ -41,13 +38,42 @@
             height: 50px;
         }
 
-        /* Settings icon styling */
+.report-btn {
+    position: absolute;
+    top: 20px;
+    right: 50px; 
+    background-color: transparent; 
+    border: none;
+    color: rgba(255, 255, 255, 0.6); 
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease; 
+}
+
+.report-btn:hover {
+    color: rgba(255, 255, 255, 0.8); 
+}
+
+.report-icon {
+    font-size: 24px;
+ color: rgba(0, 0, 0, 0.8);
+ 
+    cursor: pointer;
+    transition: color 0.3s ease; 
+}
+
+.report-icon:hover {
+    color: rgba(0, 0, 0, 0.8);
+
+}
+        
         .settings-icon {
             position: absolute;
             top: 20px;
             right: 20px;
             font-size: 24px;
-            color: rgba(0, 0, 0, 0.6); /* Black blended */
+            color: rgba(0, 0, 0, 0.8);
+
             cursor: pointer;
         }
 
@@ -55,8 +81,7 @@
             color: rgba(0, 0, 0, 0.8);
         }
 
-        /* Profile picture styling */
-        .profile-img {
+                .profile-img {
             border-radius: 50%;
             width: 150px;
             height: 150px;
@@ -64,14 +89,14 @@
             margin-bottom: 20px;
         }
 
-        /* Name and designation */
+
         .profile-name {
             font-size: 36px;
             margin: 10px 0;
             font-weight: bold;
         }
 
-        /* Position and institution */
+       
         .profile-post,
         .profile-institution {
             font-size: 18px;
@@ -79,7 +104,7 @@
             margin-bottom: 10px;
         }
 
-        /* About section */
+      
         .profile-about {
             font-size: 16px;
             color: #ccc;
@@ -89,7 +114,7 @@
             padding: 0 20px;
         }
 
-        /* Contact buttons container */
+        
         .profile-contact {
             display: flex;
             justify-content: center;
@@ -98,7 +123,7 @@
             flex-wrap: wrap;
         }
 
-        /* Round buttons styling */
+        
         .round-btn {
             background-color: #4a90e2;
             border: none;
@@ -114,7 +139,7 @@
             background-color: #357ab7;
         }
 
-        /* Social media icons container */
+       
         .profile-social-media {
             display: flex;
             justify-content: center;
@@ -123,7 +148,7 @@
             flex-wrap: wrap;
         }
 
-        /* Social media icons styling */
+       
         .social-media-link img {
             width: 40px;
             height: 40px;
@@ -135,7 +160,7 @@
             opacity: 0.7;
         }
 
-        /* Contact information container */
+        
         .profile-contact-info {
             font-size: 16px;
             color: #ccc;
@@ -143,7 +168,7 @@
             cursor: pointer;
         }
 
-        /* Location styling */
+        
         .profile-location {
             font-size: 16px;
             color: #ccc;
@@ -151,7 +176,7 @@
             cursor: pointer;
         }
 
-        /* QR Code modal */
+       
         .qr-modal {
             display: none;
             position: fixed;
@@ -181,13 +206,80 @@
             font-size: 24px;
         }
 
-        /* New styles for larger QR code */
+        
         #qrcode svg {
             width: 300px;
             height: 300px;
         }
 
-        /* Responsive adjustments */
+
+        .report-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .report-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+
+        .report-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #aaa;
+            font-size: 24px;
+        }
+
+        .report-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .report-form label {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .report-form input, .report-form textarea {
+            width: 90%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .report-form button {
+            background-color: #4a90e2;
+            border: none;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .report-form button:hover {
+            background-color: #357ab7;
+        }
+
+        
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -236,12 +328,18 @@
 </head>
 <body>
     <div class="profile-card">
-        <a href="card.html">
-    <img src="logo.png" alt="Logo" class="logo">
-</a>
-<a href="login.html">
-    <i class="fas fa-cog settings-icon"></i>
-</a>
+<a href="card.html">
+            <img src="logo.png" alt="Logo" class="logo">
+        </a>
+
+<button class="report-btn" onclick="showReportForm()">
+    <i class="fas fa-flag report-icon"></i> 
+</button>
+
+
+        <a href="login.html">
+            <i class="fas fa-cog settings-icon"></i>
+        </a>
 
         <div class="profile-header">
             <img src="profile.png" alt="Profile Picture" class="profile-img">
@@ -254,25 +352,28 @@
             <button class="round-btn" onclick="saveContact()">Save Contact</button>
             <a href="tel:+977-9857021003" class="round-btn">Call</a>
             <button class="round-btn" onclick="generateQR()">Share Profile</button>
+            
         </div>
         <div class="profile-social-media">
             <a href="https://www.facebook.com/govind.kc" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
-            <a href="https://www.linkedin.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Linkedin_icon.svg" alt="LinkedIn"></a>
+            <a href="https://www.linkedin.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/8/81/LinkedIn_icon.svg" alt="LinkedIn"></a>
             <a href="https://www.instagram.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"></a>
-            <a href="https://wa.me/9779857021003" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
+                       <a href="https://wa.me/9779857021003" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
             <a href="https://www.youtube.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/4/42/YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
-            <a href="https://www.govindabahadurkhatri.com.np" class="social-media-link"><img src="https://e7.pngegg.com/pngimages/301/871/png-clipart-computer-icons-website-web-design-symmetry-thumbnail.png" alt="Website"></a>
+            <a href="https://www.govindabahadurkhatri.com.np" class="social-media-link"><img src="images/website.png" alt="Website"></a>
         </div>
         <div class="profile-contact-info" onclick="sendEmail()">
             <p><i class="fas fa-envelope contact-icon"></i> govindakc.np@gmail.com</p>
         </div>
-        <div class="profile-contact-info        onclick="makeCall()">
+        <div class="profile-contact-info" onclick="makeCall()">
             <p><i class="fas fa-phone contact-icon"></i> Call: +977-9857021003</p>
+        </div>
+        <div class="profile-location">
             <p><i class="fas fa-map-marker-alt contact-icon"></i> Tilottama Rupandehi, Nepal</p>
         </div>
     </div>
 
-    <!-- QR Code Modal -->
+    
     <div id="qrModal" class="qr-modal">
         <div class="qr-container">
             <span class="qr-close" onclick="closeQRModal()">&times;</span>
@@ -281,10 +382,37 @@
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+   <div id="reportModal" class="report-modal" style="display: none;">
+    <div class="report-container">
+        <span class="report-close" onclick="closeReportForm()">&times;</span>
+        <h2>Report Profile</h2>
+        <form id="reportForm" class="report-form" onsubmit="submitReportForm(event)" autocomplete="off">
+            <div>
+                <label for="name">Your Name:</label>
+                <input type="text" id="entry.2089213951" name="entry.2089213951" required autocomplete="off">
+            </div>
+            <div>
+                <label for="robajId">Your Robaj ID:</label>
+                <input type="text" id="entry.824755958" name="entry.824755958" required autocomplete="off">
+            </div>
+            <div>
+                <label for="reason">Describe Your Issue:</label>
+                <textarea id="entry.1229325095" name="entry.1229325095" rows="4" required autocomplete="off"></textarea>
+            </div>
+            <button type="submit" class="round-btn">Submit</button>
+        </form>
+        <div id="successMessage" style="display: none; color: green; margin-top: 10px;">
+            Your issue has been registered and will be sorted out soon.
+        </div>
+    </div>
+</div>
+
+
+
+
     <script>
         function saveContact() {
-    const vCardData = `
+            const vCardData = `
 BEGIN:VCARD
 VERSION:3.0
 FN:Govinda Bahadur Khatri
@@ -294,27 +422,21 @@ URL:https://www.govindabahadurkhatri.com.np
 PHOTO;TYPE=JPEG;ENCODING=BASE64:${getImageBase64()}
 END:VCARD`;
 
-    const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
 
-    // Create a new URL for the blob
-    const blobURL = URL.createObjectURL(blob);
+            const blobURL = URL.createObjectURL(blob);
 
-    // Create a new anchor element
-    const a = document.createElement('a');
-    a.href = blobURL;
-    a.setAttribute('download', 'contact.vcf');  // Ensure filename is correctly set
+            const a = document.createElement('a');
+            a.href = blobURL;
+            a.setAttribute('download', 'contact.vcf');
 
-    // Append anchor to body
-    document.body.appendChild(a);
+            document.body.appendChild(a);
 
-    // Programmatically trigger the download
-    a.click();
+            a.click();
 
-    // Clean up
-    document.body.removeChild(a);
-    URL.revokeObjectURL(blobURL);
-}
-
+            document.body.removeChild(a);
+            URL.revokeObjectURL(blobURL);
+        }
 
         function getImageBase64() {
             const canvas = document.createElement('canvas');
@@ -325,7 +447,7 @@ END:VCARD`;
             canvas.height = img.height;
             ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-            return canvas.toDataURL('image/jpeg').split(',')[1];  // Base64 encoded image data
+            return canvas.toDataURL('image/jpeg').split(',')[1];
         }
 
         function sendEmail() {
@@ -379,7 +501,31 @@ END:VCARD`;
         function closeQRModal() {
             document.getElementById('qrModal').style.display = 'none';
         }
+
+        function showReportForm() {
+            document.getElementById('reportModal').style.display = 'flex';
+        }
+
+        function submitReportForm(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Prepare form data for report
+    var formData = new FormData(document.getElementById("reportForm"));
+
+    // Perform report form submission
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://docs.google.com/forms/d/e/1FAIpQLScYnQKM8mFPOFSy6U8XmE6hAEWKxFY9NxCZb7eaASB_MgqNuA/formResponse", true);
+    xhr.send(formData);
+
+    // Display success message and reset form
+    document.getElementById("reportForm").reset(); // Reset form fields
+    document.getElementById("successMessage").style.display = "block";
+}
+
+// Function to close report form modal
+function closeReportForm() {
+    document.getElementById("reportModal").style.display = "none";
+}
     </script>
 </body>
 </html>
-
