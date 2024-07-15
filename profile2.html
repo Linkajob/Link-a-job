@@ -6,9 +6,8 @@
     <title>Binod Kumar Khadka</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
-   <style>
-        /* Global reset and base styles */
-        body {
+    <style>
+               body {
             font-family: 'Roboto', sans-serif;
             background: linear-gradient(135deg, #1c1c1e, #2e2e2e);
             color: #fff;
@@ -21,7 +20,7 @@
             box-sizing: border-box;
         }
 
-        /* Container for profile card */
+        
         .profile-card {
             background-color: #333;
             border-radius: 10px;
@@ -29,11 +28,9 @@
             max-width: 90%;
             text-align: center;
             overflow: hidden;
-            position: relative; /* Added for positioning the logo and settings icon */
+            position: relative; 
         }
-
-        /* Logo styling */
-        .logo {
+ .logo {
             position: absolute;
             top: 20px;
             left: 20px;
@@ -41,13 +38,42 @@
             height: 50px;
         }
 
-        /* Settings icon styling */
+.report-btn {
+    position: absolute;
+    top: 20px;
+    right: 50px; 
+    background-color: transparent; 
+    border: none;
+    color: rgba(255, 255, 255, 0.6); 
+    font-size: 24px;
+    cursor: pointer;
+    transition: color 0.3s ease; 
+}
+
+.report-btn:hover {
+    color: rgba(255, 255, 255, 0.8); 
+}
+
+.report-icon {
+    font-size: 24px;
+ color: rgba(0, 0, 0, 0.8);
+ 
+    cursor: pointer;
+    transition: color 0.3s ease; 
+}
+
+.report-icon:hover {
+    color: rgba(0, 0, 0, 0.8);
+
+}
+        
         .settings-icon {
             position: absolute;
             top: 20px;
             right: 20px;
             font-size: 24px;
-            color: rgba(0, 0, 0, 0.6); /* Black blended */
+            color: rgba(0, 0, 0, 0.8);
+
             cursor: pointer;
         }
 
@@ -55,8 +81,7 @@
             color: rgba(0, 0, 0, 0.8);
         }
 
-        /* Profile picture styling */
-        .profile-img {
+                .profile-img {
             border-radius: 50%;
             width: 150px;
             height: 150px;
@@ -64,14 +89,14 @@
             margin-bottom: 20px;
         }
 
-        /* Name and designation */
+
         .profile-name {
             font-size: 36px;
             margin: 10px 0;
             font-weight: bold;
         }
 
-        /* Position and institution */
+       
         .profile-post,
         .profile-institution {
             font-size: 18px;
@@ -79,7 +104,7 @@
             margin-bottom: 10px;
         }
 
-        /* About section */
+      
         .profile-about {
             font-size: 16px;
             color: #ccc;
@@ -89,7 +114,7 @@
             padding: 0 20px;
         }
 
-        /* Contact buttons container */
+        
         .profile-contact {
             display: flex;
             justify-content: center;
@@ -98,7 +123,7 @@
             flex-wrap: wrap;
         }
 
-        /* Round buttons styling */
+        
         .round-btn {
             background-color: #4a90e2;
             border: none;
@@ -114,7 +139,7 @@
             background-color: #357ab7;
         }
 
-        /* Social media icons container */
+       
         .profile-social-media {
             display: flex;
             justify-content: center;
@@ -123,7 +148,7 @@
             flex-wrap: wrap;
         }
 
-        /* Social media icons styling */
+       
         .social-media-link img {
             width: 40px;
             height: 40px;
@@ -135,7 +160,7 @@
             opacity: 0.7;
         }
 
-        /* Contact information container */
+        
         .profile-contact-info {
             font-size: 16px;
             color: #ccc;
@@ -143,7 +168,7 @@
             cursor: pointer;
         }
 
-        /* Location styling */
+        
         .profile-location {
             font-size: 16px;
             color: #ccc;
@@ -151,7 +176,7 @@
             cursor: pointer;
         }
 
-        /* QR Code modal */
+       
         .qr-modal {
             display: none;
             position: fixed;
@@ -181,13 +206,80 @@
             font-size: 24px;
         }
 
-        /* New styles for larger QR code */
+        
         #qrcode svg {
             width: 300px;
             height: 300px;
         }
 
-        /* Responsive adjustments */
+
+        .report-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .report-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: left;
+            max-width: 400px;
+            width: 90%;
+            position: relative;
+        }
+
+        .report-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #aaa;
+            font-size: 24px;
+        }
+
+        .report-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .report-form label {
+            font-size: 16px;
+            color: #333;
+        }
+
+        .report-form input, .report-form textarea {
+            width: 90%;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .report-form button {
+            background-color: #4a90e2;
+            border: none;
+            color: white;
+            padding: 12px;
+            text-decoration: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .report-form button:hover {
+            background-color: #357ab7;
+        }
+
+        
         @media (max-width: 768px) {
             body {
                 flex-direction: column;
@@ -232,19 +324,22 @@
                 font-size: 14px;
             }
         }
-    
     </style>
 
 </head>
 <body>
     <div class="profile-card">
 <a href="card.html">
-    <img src="logo.png" alt="Logo" class="logo">
-</a>
-<a href="login.html">
-    <i class="fas fa-cog settings-icon"></i>
-</a>
+            <img src="logo.png" alt="Logo" class="logo">
+        </a>
 
+<button class="report-btn" onclick="showReportForm()">
+    <i class="fas fa-flag report-icon"></i> 
+</button>
+
+        <a href="login.html">
+            <i class="fas fa-cog settings-icon"></i>
+        </a>
         <div class="profile-header">
             <img src="binod.jpg" alt="Profile Picture" class="profile-img">
             <h1 class="profile-name">Binod Kumar Khadka</h1>
@@ -259,23 +354,21 @@
         </div>
         <div class="profile-social-media">
             <a href="https://www.facebook.com/govind.kc" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Facebook_f_logo_%282019%29.svg/1200px-Facebook_f_logo_%282019%29.svg.png" alt="Facebook"></a>
-            
             <a href="https://linkedin.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Linkedin_icon.svg/1200px-Linkedin_icon.svg.png" alt="LinkedIn"></a>
             <a href="https://instagram.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Instagram_icon.png/1024px-Instagram_icon.png" alt="Instagram"></a>
             <a href="https://wa.me/9779851084524" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></a>
             <a href="https://youtube.com" class="social-media-link"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/YouTube_icon_%282013-2017%29.png/240px-YouTube_icon_%282013-2017%29.png" alt="YouTube"></a>
-<a href="https://www.g.com.np" class="social-media-link"><img src="https://e7.pngegg.com/pngimages/301/871/png-clipart-computer-icons-website-web-design-symmetry-thumbnail.png" alt="Website"></a>
-
+            <a href="https://www.g.com.np" class="social-media-link"><img src="images/website.png" alt="Website"></a>
         </div>
         <div class="profile-contact-info" onclick="sendEmail()">
-            <p><i class="fas fa-envelope contact-icon"></i> binod76khadka@gmail.com</p>
+            <p><i class="fas fa-envelope contact-icon"></i> govindakc.np@gmail.com</p>
         </div>
-        <div class="profile-location" onclick="makeCall()">
+        <div class="profile-contact-info" onclick="makeCall()">
             <p><i class="fas fa-phone contact-icon"></i> Call: +977-9851084524</p>
-            <p><i class="fas fa-map-marker-alt contact-icon"></i> Kathmandu, Nepal</p>
-        </div>
-    </div>
-
+</div>
+<div class="profile-location">
+<p><i class="fas fa-map-marker-alt contact-icon"></i> Kathmandu, Nepal</p>
+</div>
     <!-- QR Code Modal -->
     <div id="qrModal" class="qr-modal">
         <div class="qr-container">
@@ -284,96 +377,147 @@
             <button class="round-btn" onclick="downloadQR()">Download QR</button>
         </div>
     </div>
+<div id="reportModal" class="report-modal" style="display: none;">
+    <div class="report-container">
+        <span class="report-close" onclick="closeReportForm()">&times;</span>
+        <h2>Report Profile</h2>
+        <form id="reportForm" class="report-form" onsubmit="submitReportForm(event)" autocomplete="off">
+            <div>
+                <label for="name">Your Name:</label>
+                <input type="text" id="entry.2089213951" name="entry.2089213951" required autocomplete="off">
+            </div>
+            <div>
+                <label for="robajId">Your Robaj ID:</label>
+                <input type="text" id="entry.824755958" name="entry.824755958" required autocomplete="off">
+            </div>
+            <div>
+                <label for="reason">Describe Your Issue:</label>
+                <textarea id="entry.1229325095" name="entry.1229325095" rows="4" required autocomplete="off"></textarea>
+            </div>
+            <button type="submit" class="round-btn">Submit</button>
+        </form>
+        <div id="successMessage" style="display: none; color: green; margin-top: 10px;">
+            Your issue has been registered and will be sorted out soon.
+        </div>
+    </div>
+</div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
-<script>
-    function saveContact() {
-    const vCardData = `
-BEGIN:VCARD
-VERSION:3.0
-FN:Binod Kumar Khadka
-TEL:+9779851084524
-EMAIL:binod76khadka@gmail.com
-URL:https://www.govindabahadurkhatri.com.np
-PHOTO;TYPE=JPEG;ENCODING=BASE64:${getImageBase64()}
-END:VCARD`;
 
-    const blob = new Blob([vCardData], { type: 'text/vcard' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'Binod_Kumar_Khadka.vcf'; // Set the filename here
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-}
+    <script>
+        function saveContact() {
+            const vCardData = `
+            BEGIN:VCARD
+            VERSION:3.0
+            FN:Binod Kumar Khadka
+            TEL:+9779851084524
+            EMAIL:binod76khadka@gmail.com
+            URL:https://www.govindabahadurkhatri.com.np
+            PHOTO;TYPE=JPEG;ENCODING=BASE64:${getImageBase64()}
+            END:VCARD`;
 
-    function getImageBase64() {
-        const canvas = document.createElement('canvas');
-        const ctx = canvas.getContext('2d');
-        const img = document.querySelector('.profile-img');
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'Binod_Kumar_Khadka.vcf'; // Set the filename here
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
 
-        canvas.width = img.width;
-        canvas.height = img.height;
-        ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+        function getImageBase64() {
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = document.querySelector('.profile-img');
 
-        return canvas.toDataURL('image/jpeg').split(',')[1];  // Base64 encoded image data
-    }
-
-    function sendEmail() {
-        const email = 'binod76khadka@gmail.com';
-        window.location.href = 'mailto:' + email;
-    }
-
-    function makeCall() {
-        const phoneNumber = '+9779851084524';
-        window.location.href = 'tel:' + phoneNumber;
-    }
-
-    function generateQR() {
-        const currentURL = window.location.href;
-        const qrCode = qrcode(0, 'M');
-        qrCode.addData(currentURL);
-        qrCode.make();
-        const qrElement = document.getElementById('qrcode');
-        qrElement.innerHTML = qrCode.createSvgTag({ scalable: true });
-        document.getElementById('qrModal').style.display = 'flex';
-    }
-
-    function downloadQR() {
-        const profileName = 'Binod Kumar Khadka';
-        const svg = document.getElementById('qrcode').querySelector('svg');
-        const svgData = new XMLSerializer().serializeToString(svg);
-        const canvas = document.createElement('canvas');
-        const context = canvas.getContext('2d');
-
-        const img = new Image();
-        img.onload = function () {
-            context.clearRect(0, 0, canvas.width, canvas.height);
             canvas.width = img.width;
             canvas.height = img.height;
-            context.drawImage(img, 0, 0);
+            ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
 
-            canvas.toBlob(function (blob) {
-                const url = URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = `${profileName} QR.jpg`;
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-                URL.revokeObjectURL(url);
-            }, 'image/jpeg');
-        };
-        img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
-    }
+            return canvas.toDataURL('image/jpeg').split(',')[1];  // Base64 encoded image data
+        }
 
-    function closeQRModal() {
-        document.getElementById('qrModal').style.display = 'none';
-    }
-</script>
+        function sendEmail() {
+            const email = 'binod76khadka@gmail.com';
+            window.location.href = 'mailto:' + email;
+        }
+
+        function makeCall() {
+            const phoneNumber = '+9779851084524';
+            window.location.href = 'tel:' + phoneNumber;
+        }
+
+        function generateQR() {
+            const currentURL = window.location.href;
+            const qrCode = qrcode(0, 'M');
+            qrCode.addData(currentURL);
+            qrCode.make();
+            const qrElement = document.getElementById('qrcode');
+            qrElement.innerHTML = qrCode.createSvgTag({ scalable: true });
+            document.getElementById('qrModal').style.display = 'flex';
+        }
+
+        function downloadQR() {
+            const profileName = 'Binod Kumar Khadka';
+            const svg = document.getElementById('qrcode').querySelector('svg');
+            const svgData = new XMLSerializer().serializeToString(svg);
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+
+            const img = new Image();
+            img.onload = function () {
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                canvas.width = img.width;
+                canvas.height = img.height;
+                context.drawImage(img, 0, 0);
+
+                canvas.toBlob(function (blob) {
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `${profileName} QR.jpg`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                }, 'image/jpeg');
+            };
+            img.src = 'data:image/svg+xml;base64,' + btoa(svgData);
+        }
+
+        function closeQRModal() {
+            document.getElementById('qrModal').style.display = 'none';
+        }
+function showReportForm() {
+    // Reset form fields
+    document.getElementById("reportForm").reset();
+
+    // Display the report form modal
+    document.getElementById("reportModal").style.display = "flex";
+}
+
+function submitReportForm(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Prepare form data for report
+    var formData = new FormData(document.getElementById("reportForm"));
+
+    // Perform report form submission
+    var xhr = new XMLHttpRequest();
+    xhr.open("POST", "https://docs.google.com/forms/d/e/1FAIpQLScYnQKM8mFPOFSy6U8XmE6hAEWKxFY9NxCZb7eaASB_MgqNuA/formResponse", true);
+    xhr.send(formData);
+
+    // Display success message and reset form
+    document.getElementById("reportForm").reset(); // Reset form fields
+    document.getElementById("successMessage").style.display = "block";
+}
+
+// Function to close report form modal
+function closeReportForm() {
+    document.getElementById("reportModal").style.display = "none";
+}
+
+    </script>
 
 
-</body>
-</html>
