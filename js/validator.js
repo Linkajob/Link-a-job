@@ -23,7 +23,7 @@ const certificates = {
         post: "Social Media Manager",
         issuer: {
             name: "Link A Job",
-            link: "https://www.linkajob.com"
+            link: "https://www.linkajob.com/"
         },
         reasonForLeave: "Personal Reasons",
         award: "Employee of the Year 2023"
