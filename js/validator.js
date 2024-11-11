@@ -30,14 +30,23 @@ const certificates = {
     }
 };
 
-document.getElementById("validateButton").addEventListener("click", function () {
-    const code = document.getElementById("certificateCode").value.trim();
+// Function to validate and display certificate details
+function validateCertificate() {
+    const code = document.getElementById("certificateCode").value.trim().toLowerCase(); // Convert input to lowercase
     const resultDiv = document.getElementById("result");
+
+    const certificateKeys = Object.keys(certificates); // Get all certificate keys
+
+    // Convert all keys to lowercase for comparison
+    const lowerCaseKeys = certificateKeys.map(key => key.toLowerCase());
 
     if (code === "") {
         resultDiv.innerHTML = "<p style='color: red;'>Please enter a certificate code.</p>";
-    } else if (certificates.hasOwnProperty(code)) {
-        const cert = certificates[code];
+    } else if (lowerCaseKeys.includes(code)) {
+        // Find the original certificate key corresponding to the lowercase input
+        const certKey = certificateKeys[lowerCaseKeys.indexOf(code)];
+        const cert = certificates[certKey];
+
         resultDiv.innerHTML = `
             <div>
                 <img src="${cert.image}" alt="${cert.name}'s photo" width="100" height="100">
@@ -53,5 +62,15 @@ document.getElementById("validateButton").addEventListener("click", function () 
         `;
     } else {
         resultDiv.innerHTML = "<p style='color: red;'>Invalid certificate code.</p>";
+    }
+}
+
+// Event listener for the "Validate" button click
+document.getElementById("validateButton").addEventListener("click", validateCertificate);
+
+// Event listener for the "Enter" key press (key code 13)
+document.getElementById("certificateCode").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") { // Check if the "Enter" key is pressed
+        validateCertificate(); // Trigger the certificate validation
     }
 });
