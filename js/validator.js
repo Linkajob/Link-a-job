@@ -19,7 +19,7 @@ const certificates = {
         workPeriod: "February 2023 - September 2024",
         entryDate: "2023-02-05",
         image: "images/bishal.png",
-        verifiedAccount: false,
+        verifiedAccount: true,
         post: "Social Media Manager",
         issuer: {
             name: "Link A Job",
@@ -31,13 +31,10 @@ const certificates = {
 };
 
 // Function to validate and display certificate details
-function validateCertificate() {
-    const code = document.getElementById("certificateCode").value.trim().toLowerCase(); // Convert input to lowercase
+function validateCertificate(code) {
     const resultDiv = document.getElementById("result");
 
     const certificateKeys = Object.keys(certificates); // Get all certificate keys
-
-    // Convert all keys to lowercase for comparison
     const lowerCaseKeys = certificateKeys.map(key => key.toLowerCase());
 
     if (code === "") {
@@ -51,13 +48,13 @@ function validateCertificate() {
             <div>
                 <img src="${cert.image}" alt="${cert.name}'s photo" width="100" height="100">
                 <h2>${cert.name}</h2>
-                <p style="font-size: 0.8em; color: #777;">verified account</p> <!-- Small text for verified account -->
+                <p style="font-size: 0.8em; color: #777;">${cert.verifiedAccount ? '✔ Verified Account' : ''}</p>
                 <p><strong>Work Period:</strong> ${cert.workPeriod}</p>
                 <p><strong>Entry Date:</strong> ${cert.entryDate}</p>
                 <p><strong>Post:</strong> ${cert.post}</p>
                 <p><strong>Issuer:</strong> <a href="${cert.issuer.link}" target="_blank">${cert.issuer.name}</a></p>
-                <p><strong>Reason for Leave:</strong> ${cert.reasonForLeave}</p> <!-- Display reason for leave -->
-                <p><strong>Award:</strong> ${cert.award}</p> <!-- Display award -->
+                <p><strong>Reason for Leave:</strong> ${cert.reasonForLeave}</p>
+                <p><strong>Award:</strong> ${cert.award}</p>
             </div>
         `;
     } else {
@@ -65,12 +62,25 @@ function validateCertificate() {
     }
 }
 
-// Event listener for the "Validate" button click
-document.getElementById("validateButton").addEventListener("click", validateCertificate);
+// Function to get the certificate code from URL query parameters
+function getCertificateCodeFromURL() {
+    const urlParams = new URLSearchParams(window.location.search); // Get the query string
+    const code = urlParams.get('code'); // Get the 'code' parameter
+    if (code) {
+        validateCertificate(code.toLowerCase()); // Automatically validate the certificate from URL
+    }
+}
 
-// Event listener for the "Enter" key press (key code 13)
-document.getElementById("certificateCode").addEventListener("keydown", function(event) {
-    if (event.key === "Enter") { // Check if the "Enter" key is pressed
-        validateCertificate(); // Trigger the certificate validation
+// Call the function when the page loads
+document.addEventListener("DOMContentLoaded", function() {
+    getCertificateCodeFromURL(); // Extract and validate certificate code from the URL
+
+    // Add event listener for manual entry button
+    const validateButton = document.getElementById("validateButton");
+    if (validateButton) {
+        validateButton.addEventListener("click", function() {
+            const codeInput = document.getElementById("certificateCode").value.trim().toLowerCase();
+            validateCertificate(codeInput); // Validate the manually entered code
+        });
     }
 });
