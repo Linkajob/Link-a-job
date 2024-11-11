@@ -2,3 +2,5 @@ User-agent: *
 Disallow: /file/upload.html
 Disallow: /training/certificate.html
 Disallow: /pricing.html
+Disallow: /experience.html
+
