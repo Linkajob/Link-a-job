@@ -1,4 +1,3 @@
-// Predefined list of valid certificates with details
 const certificates = {
     "la001j": {
         name: "Bishal Gaire",
@@ -27,6 +26,20 @@ const certificates = {
         },
         reasonForLeave: "Personal Reasons",
         award: "Employee of the Year 2023"
+    },
+    "la007g8j": {
+        name: "Janak Panthi",
+        volunteerPeriod: "January 2023 - November 2024",  
+        entryDate: "2024-01-01",
+        image: "images/janak.png",
+        verifiedAccount: true,
+        post: "Volunteer",
+        issuer: {
+            name: "Link A Job.",
+            link: "https://www.linkajob.com"
+        },
+        reasonForLeave: "To Pursue Higher Education, Under good terms",
+        award: "Youth Changemaker Award"
     }
 };
 
@@ -44,12 +57,15 @@ function validateCertificate(code) {
         const certKey = certificateKeys[lowerCaseKeys.indexOf(code)];
         const cert = certificates[certKey];
 
+        // Determine which period to display
+        const period = cert.volunteerPeriod || cert.workPeriod; // Use volunteerPeriod if available, else fallback to workPeriod
+
         resultDiv.innerHTML = `
             <div>
                 <img src="${cert.image}" alt="${cert.name}'s photo" width="100" height="100">
                 <h2>${cert.name}</h2>
                 <p style="font-size: 0.8em; color: #777;">${cert.verifiedAccount ? '✔ Verified Account' : ''}</p>
-                <p><strong>Work Period:</strong> ${cert.workPeriod}</p>
+                <p><strong>Work Period:</strong> ${period}</p> <!-- Display the appropriate period -->
                 <p><strong>Entry Date:</strong> ${cert.entryDate}</p>
                 <p><strong>Post:</strong> ${cert.post}</p>
                 <p><strong>Issuer:</strong> <a href="${cert.issuer.link}" target="_blank">${cert.issuer.name}</a></p>
