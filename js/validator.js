@@ -29,7 +29,7 @@ const certificates = {
     },
     "la007g8j": {
         name: "Janak Panthi",
-        volunteerPeriod: "January 2023 - November 2024",  
+        volunteerPeriod: "January 2024 - November 2024",  
         entryDate: "2024-01-01",
         image: "images/janak.png",
         verifiedAccount: true,
